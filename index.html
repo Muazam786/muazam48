@@ -3,23 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baggage Weight Check</title>
+    <title>exercise 8</title>
+</head>
+    <body>
     <script>
-        function doIt() {
-            let weight = parseFloat(document.getElementById("bw").value);
-            if (isNaN(weight)) {
-                alert("Please enter a valid number.");
-            } else if (weight > 15) {
-                alert("Your bag is overweight!");
-            } else {
-                alert("Your bag is within the limit.");
+        class Basket {
+    constructor() {
+        this.items = {};
+    }
+
+    addItem(product, qty) {
+        if (this.items[product]) {
+            this.items[product] += qty;
+        } else {
+            this.items[product] = qty;
+        }
+    }
+
+    get Cost(prices) {
+        let total cost = 0;
+        for (let product in this.items) {
+            if (prices.hasOwnProperty(product)) {
+                totalCost += this.items[product] * prices[product];
             }
         }
+        return total-cost;
+    }
+}
+
+// Example usage:
+const basket = new Basket();
+basket.addItem("apple", 2);
+basket.addItem("banana", 3);
+
+const prices = { apple: 1.5, banana: 2.0 };
+console.log(basket.getCost(prices)); // Output: 9.0
+
     </script>
-</head>
-<body>
-    <p>Enter your baggage weight:</p>
-    <input type="text" id="bw" size="6">
-    <button onclick="doIt()">Submit</button>
 </body>
 </html>
