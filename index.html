@@ -3,42 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exercise 8</title>
+    <title>Exercise 8</title>
 </head>
-    <body>
+<body>
     <script>
         class Basket {
-    constructor() {
-        this.items = {};
-    }
+            constructor() {
+                this.items = {};
+            }
 
-    addItem(product, qty) {
-        if (this.items[product]) {
-            this.items[product] += qty;
-        } else {
-            this.items[product] = qty;
-        }
-    }
+            addItem(product, qty) {
+                if (this.items[product]) {
+                    this.items[product] += qty;
+                } else {
+                    this.items[product] = qty;
+                }
+            }
 
-    get Cost(prices) {
-        let total cost = 0;
-        for (let product in this.items) {
-            if (prices.hasOwnProperty(product)) {
-                totalCost += this.items[product] * prices[product];
+            getCost(prices) { // Fixed method name
+                let totalCost = 0; // Fixed variable declaration
+                for (let product in this.items) {
+                    if (prices.hasOwnProperty(product)) {
+                        totalCost += this.items[product] * prices[product];
+                    }
+                }
+                return totalCost; // Fixed return statement
             }
         }
-        return total-cost;
-    }
-}
 
-// Example usage:
-const basket = new Basket();
-basket.addItem("apple", 2);
-basket.addItem("banana", 3);
+        // Example usage:
+        const basket = new Basket();
+        basket.addItem("apple", 2);
+        basket.addItem("banana", 3);
 
-const prices = { apple: 1.5, banana: 2.0 };
-console.log(basket.getCost(prices)); // Output: 9.0
-
+        const prices = { apple: 1.5, banana: 2.0 };
+        console.log(basket.getCost(prices)); // Output: 9.0
     </script>
 </body>
 </html>
